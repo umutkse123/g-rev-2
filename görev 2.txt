@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+// -->"hesapla" fonksiyonunu tanımladıgım yer
+void hesapla(const std::string& cumle, int& karakterSayisi, int& kelimeSayisi) {
+
+    karakterSayisi = cumle.length();
+
+    // -->Kelime sayısını bulmak için yazdigim kod
+
+    std::istringstream stream(cumle);
+    kelimeSayisi = 0;
+
+
+    std::string kelime;
+
+
+    while (stream >> kelime){
+        kelimeSayisi++;
+    }
+
+}
+
+
+
+
+int main(){
+    std::string girisCumlesi;
+
+
+    std::cout << "Bir cümle girin: ";
+
+
+    std::getline(std::cin, girisCumlesi);
+
+    int karakterSayisi, kelimeSayisi;
+
+
+    hesapla(girisCumlesi, karakterSayisi, kelimeSayisi);
+
+
+    std::cout << "Girilen cümle: " << girisCumlesi << std::endl;
+
+    std::cout << "Karakter sayısı: " << karakterSayisi << std::endl;
+
+    std::cout << "Kelime sayısı: " << kelimeSayisi << std::endl;
+
+
+    return 0;
+
+}
